@@ -4,7 +4,7 @@ import 'package:flutter_imc/ui/android/material-app.dart';
 import 'package:flutter_imc/ui/ios/cupertino-app.dart';
 
 void main() {
-  bool isWindows = false;
+  bool isWindows = true;
   if (isWindows) {
     runApp(MyMaterialApp());
   } else {

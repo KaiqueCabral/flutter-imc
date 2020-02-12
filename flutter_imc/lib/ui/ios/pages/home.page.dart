@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_imc/blocs/imc.bloc.dart';
+import 'package:flutter_imc/blocs/en-US/imc.strings.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -17,7 +19,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.blue,
         actionsForegroundColor: Colors.blue,
         middle: Text(
-          "Cálculo de IMC",
+          ImcStrings.title,
           style: TextStyle(
             color: Colors.white,
           ),
@@ -27,18 +29,44 @@ class _HomePageState extends State<HomePage> {
         children: <Widget>[
           Padding(
             padding: EdgeInsets.all(20),
-            child: CupertinoTextField(
-              placeholder: "Altura (cm)",
-              controller: bloc.heightController,
-              keyboardType: TextInputType.number,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  ImcStrings.height,
+                  style: TextStyle(
+                    fontSize: 13,
+                    color: Theme.of(context).primaryColor,
+                  ),
+                ),
+                CupertinoTextField(
+                  placeholder: ImcStrings.height,
+                  showCursor: true,
+                  controller: bloc.heightController,
+                  keyboardType: TextInputType.number,
+                ),
+              ],
             ),
           ),
           Padding(
             padding: EdgeInsets.all(20),
-            child: CupertinoTextField(
-              placeholder: "Peso (kg)",
-              controller: bloc.weightController,
-              keyboardType: TextInputType.number,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  ImcStrings.weight,
+                  style: TextStyle(
+                    fontSize: 13,
+                    color: Theme.of(context).primaryColor,
+                  ),
+                ),
+                CupertinoTextField(
+                  placeholder: ImcStrings.weight,
+                  showCursor: true,
+                  controller: bloc.weightController,
+                  keyboardType: TextInputType.number,
+                ),
+              ],
             ),
           ),
           Padding(
@@ -46,13 +74,16 @@ class _HomePageState extends State<HomePage> {
             child: Text(
               bloc.result,
               textAlign: TextAlign.center,
+              style: TextStyle(
+                color: bloc.colorResult,
+              ),
             ),
           ),
           Padding(
             padding: EdgeInsets.all(20),
             child: CupertinoButton.filled(
               child: Text(
-                "Calcular",
+                ImcStrings.calculate,
               ),
               onPressed: () {
                 setState(() {
