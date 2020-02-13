@@ -1,0 +1,10 @@
+{
+	"height": "Height (cm)",
+	"weight": "Weight (kg)",
+	"underweight": "Underweight",
+	"normal": "Normal",
+	"overweight1": "Slightly Overweight",
+	"overweight2": "Overweight",
+	"overweight3": "Extremely Overweight",
+	"button": "Calculate"
+}
