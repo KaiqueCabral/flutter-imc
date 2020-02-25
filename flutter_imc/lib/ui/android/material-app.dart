@@ -3,6 +3,8 @@ import 'package:flutter_imc/ui/android/pages/home.page.dart';
 import 'package:flutter_imc/blocs/en-US/imc.strings.dart';
 
 class MyMaterialApp extends StatelessWidget {
+  static const String routeName = "/android";
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

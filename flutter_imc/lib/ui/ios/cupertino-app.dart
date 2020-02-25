@@ -4,6 +4,8 @@ import 'package:flutter_imc/blocs/en-US/imc.strings.dart';
 import 'package:flutter_imc/ui/ios/pages/home.page.dart';
 
 class MyCupertinoApp extends StatelessWidget {
+  static const String routeName = "/ios";
+
   @override
   Widget build(BuildContext context) {
     return CupertinoApp(

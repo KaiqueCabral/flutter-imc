@@ -6,10 +6,24 @@ import 'package:flutter_masked_text/flutter_masked_text.dart';
 class ImcBloc {
   MaskedTextController heightController = MaskedTextController(mask: '000');
   MaskedTextController weightController = MaskedTextController(mask: '000');
-  String result = "";
+  String result = "Type your measurements";
   Color colorResult = Colors.black;
 
   calculate() {
+    if (weightController.text.isEmpty && heightController.text.isEmpty) {
+      result = "Type your measurements";
+      colorResult = Colors.red;
+      return;
+    } else if (weightController.text.isEmpty) {
+      result = "Please fill your weight";
+      colorResult = Colors.red;
+      return;
+    } else if (heightController.text.isEmpty) {
+      result = "Please fill your height";
+      colorResult = Colors.red;
+      return;
+    }
+
     double weight = double.parse(weightController.text);
     double height = double.parse(heightController.text) / 100;
     double imc = weight / (height * height * 1.0);
