@@ -1,10 +1,23 @@
-//import 'dart:io' show Platform;
+import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
 import 'package:flutter_imc/home.dart';
 import 'package:flutter_imc/ui/android/material-app.dart';
 import 'package:flutter_imc/ui/ios/cupertino-app.dart';
 
-void main() => runApp(ChoosePlatform());
+void main() {
+  try {
+    if (Platform.isAndroid) {
+      runApp(MyMaterialApp());
+    } else if (Platform.isIOS) {
+      runApp(MyCupertinoApp());
+    } else {
+      runApp(ChoosePlatform());
+    }
+  } catch (err) {
+    runApp(ChoosePlatform());
+    print(err);
+  }
+}
 
 class ChoosePlatform extends StatelessWidget {
   @override
